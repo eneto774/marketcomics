@@ -1,0 +1,37 @@
+<app-header></app-header>
+<section>
+<h1>Carrinho de Compras</h1>
+<div class="links">
+  <button [routerLink]="['/']" class="link">Continuar Comprando</button>
+  <button (click)="clearCart()" class="link1">Esvaziar Carrinho</button>
+</div>
+
+<section class="cupomTotal">
+  <div>
+    <p>Favo Utilizar o Cupom de Desconto: CUPOM20</p>
+    <input type="text" (input)="this.cupom = $event.target.value">
+    <button (click)="aplicaDesconto(cupom)">Aplicar</button>
+    <p class="{{styleMsg}}">{{ status_cupom }}</p>
+    </div>
+    <div class={totalCupom}>
+      <h3>Total no Carrinho: {{ totalCupom | currency:'BRL':true}}</h3>
+    </div>
+  </section>
+
+<div class="item" *ngFor="let item of cart">
+
+  <button class="deleteItem" (click)="removeItem(item.id)">X</button>
+
+  <img src="{{item.thumbnail}}" alt="{{item.title}}">
+
+  <div class="item_info">
+  <h3>{{ item.title }}</h3>
+  <span>Codigo: {{ item.id }}</span>
+  </div>
+  <div>
+    <h3>{{ item.price | currency:'BRL':true}}</h3>
+    <span>Qtd: {{ item.qtd }}</span>
+  </div>
+</div>
+</section>
+<!-- {{ cart | json}} -->

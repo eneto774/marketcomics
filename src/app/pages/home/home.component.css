@@ -1,0 +1,104 @@
+section.comics {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+}
+
+.container {
+  flex: 1;
+  max-width: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px #151414 solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  white-space:nowrap;
+  text-overflow: clip;
+}
+
+h4 {
+  font-weight: 300;
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;              /* "overflow" value must be different from "visible" */
+
+  text-overflow:    ellipsis;
+}
+
+
+img {
+  max-height: 200px;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+}
+
+div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+button.cart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  background: #292828;
+  color: #e5e5e5;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: 0.3s background;
+  margin: 0px 15px;
+}
+
+button.cart:hover {
+  background: #151414;
+}
+
+span {
+  margin-right: 30px;
+}
+
+section.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.view {
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+button.addtocart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px;
+  width: 200px;
+}
+
+section.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+button.nxtpg {
+  padding: 5px;
+  margin: 5px;
+}

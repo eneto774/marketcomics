@@ -1,0 +1,11 @@
+<app-header></app-header>
+<a [routerLink]="['/']">Voltar para Home</a>
+<h1>{{comic.title}}</h1>
+<p class="comicId">{{ comic.id }}</p>
+<img src="{{comic.thumbnail.path }}.{{comic.thumbnail.extension}}" alt="{{ comic.title }}">
+<h1>R$ 12,50</h1>
+<button class="addtocart" (click)="insertItemOnCart()">
+  <span class="material-icons">
+  add_shopping_cart
+  </span>
+</button>

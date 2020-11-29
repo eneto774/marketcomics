@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<section class="navigation">
+  <div>
+    <button [routerLink]="['/cart']" class="cart">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+      {{ totalCart || 0.00 | currency:'BRL':true}}
+    </button>
+  </div>
+</section>
+
+<section class="comics">
+  <div class="container" *ngFor="let comic of comics.data.results">
+    <h4>{{ comic.title }}</h4>
+    <img src="{{comic.thumbnail.path }}.{{comic.thumbnail.extension}}" alt="{{ comic.title }}">
+    <h5>R$ 12.50</h5>
+    <button class="view" routerLink="detail/{{comic.id}}">
+      <span class="material-icons">
+      remove_red_eye
+      </span> Ver Mais
+    </button>
+    <button class="addtocart" (click)="insertItemOnCart(comic.id)">
+      <span class="material-icons">
+      add_shopping_cart
+      </span> Adc. ao Carrinho
+    </button>
+  </div>
+</section>
+  <section class="pagination">
+    <div>
+      <button class="nxtpg" type="button" (click)="previousPage()">
+        Página Anterior
+      </button>
+      <button class="nxtpg" type="button" (click)="nextPage()">
+        Proxima Página
+      </button>
+    </div>
+  </section >
