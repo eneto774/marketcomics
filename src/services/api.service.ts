@@ -19,4 +19,9 @@ export class ApiService {
   public getComicsPages(offset) : Observable<any>{
     return this.http.get(`${this.BASE_URL}/public/comics?offset=${offset}&apikey=${this.API_KEY}`);
   }
+
+
+  public getTotalComics(limit) : Observable<any>{
+    return this.http.get(`${this.BASE_URL}/public/comics?limit=${limit}&apikey=${this.API_KEY}`);
+  }
 }

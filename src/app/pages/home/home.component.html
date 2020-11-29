@@ -12,8 +12,9 @@
 </section>
 
 <section class="comics">
-  <div class="container" *ngFor="let comic of comics.data.results">
-    <h4>{{ comic.title }}</h4>
+  <div *ngFor="let comic of comics.data.results">
+   <div class="container {{ comic.rare ? 'comicRara': '' }}">
+    <h4>{{ comic.rare ? '[RARA]': '' }}{{ comic.title }}</h4>
     <img src="{{comic.thumbnail.path }}.{{comic.thumbnail.extension}}" alt="{{ comic.title }}">
     <h5>R$ 12.50</h5>
     <button class="view" routerLink="detail/{{comic.id}}">
@@ -26,6 +27,7 @@
       add_shopping_cart
       </span> Adc. ao Carrinho
     </button>
+   </div>
   </div>
 </section>
   <section class="pagination">
@@ -38,3 +40,6 @@
       </button>
     </div>
   </section >
+
+
+

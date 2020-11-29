@@ -23,12 +23,18 @@ export class HomeComponent implements OnInit {
     this.data = this.cartService.getCart();
     this.execute();
     this.totalCart = this.getTotalStorage();
-
   }
 
   execute() {
     this.api.getComics().subscribe((comics: any) => {
       this.comics = comics;
+      let qtdRare = this.comics.data.results.length * 0.1;
+      for(let i = 0; i < qtdRare; i++) {
+        let rare = Math.floor(Math.random() * (this.comics.data.results.length - 1));
+        Object.assign(this.comics.data.results[rare], {"rare" : true});
+        console.log(this.comics.data.results[rare].rare);
+      }
+
       console.log(this.comics);
     }, (error: any) => {
       this.error = error;
@@ -73,7 +79,6 @@ export class HomeComponent implements OnInit {
       this.cartService.insertItem({
         id: this.data[0].id,
         price: 12.50,
-        rare: true,
         thumbnail: this.data[0].thumbnail.path + "." + this.data[0].thumbnail.extension,
         title: this.data[0].title,
         qtd: 1,
