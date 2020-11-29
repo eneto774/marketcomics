@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Comic } from 'src/app/models/Comic';
 
 @Injectable()
 export class CartService {
@@ -9,7 +10,7 @@ export class CartService {
   getCart() {
     return this.cart;
   }
-  insertItem(comic: any) {
+  insertItem(comic: Comic) {
     this.cart.push(comic);
   }
 

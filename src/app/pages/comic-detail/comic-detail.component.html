@@ -1,11 +1,25 @@
 <app-header></app-header>
-<a [routerLink]="['/']">Voltar para Home</a>
-<h1>{{comic.title}}</h1>
+<section class="navigation">
+  <div>
+    <button [routerLink]="['/cart']" class="cart">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+      {{ totalCart || 0.00 | currency:'BRL':true}}
+    </button>
+  <a cla [routerLink]="['/']">Voltar para Home</a>
+
+  </div>
+</section>
+<section class="ComicDetail">
+  <h1>{{comic.title}}</h1>
 <p class="comicId">{{ comic.id }}</p>
 <img src="{{comic.thumbnail.path }}.{{comic.thumbnail.extension}}" alt="{{ comic.title }}">
 <h1>R$ 12,50</h1>
 <button class="addtocart" (click)="insertItemOnCart()">
   <span class="material-icons">
   add_shopping_cart
-  </span>
+  </span> Adc. ao Carrinho
 </button>
+</section>
+

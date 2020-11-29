@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../../services/api.service';
 import { CartService } from './../../../services/cart.service';
-
+import { Comic } from '../../models/Comic';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { CartService } from './../../../services/cart.service';
 export class HomeComponent implements OnInit {
   comics: any;
   error: any;
-  data: any;
+  data: Comic;
   totalCart: number;
   page: number = 1;
   totalPage: number;

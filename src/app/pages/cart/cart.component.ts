@@ -1,5 +1,6 @@
 import { CartService } from './../../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
+import { Comic } from 'src/app/models/Comic';
 
 @Component({
   selector: 'app-cart',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  data: any;
-  cart: any;
-  cupom: any;
-  status_cupom: any;
-  styleMsg: any;
+  data: Comic[];
+  cart: Comic[];
+  cupom: string;
+  status_cupom: string;
+  styleMsg: string;
   totalCupom: number;
   descontoValue: number;
   constructor(
@@ -37,6 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService.deleteItens();
     this.data = [];
     this.cart = [];
+    this.descontoValue = 0;
     this.totalCupom = this.cartService.getBalance();
   }
 
