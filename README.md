@@ -66,6 +66,7 @@ Na rota do carrinho de compra, ele trás as opções de preenchimento do cupom d
 Na rota de visualização dos detalhes do quadrinho, disponibiliza informações do quadrinho como também a opção de adicionar ao carrinho, e a opção de voltar para a lista de quadrinhos.
 
 Foram criados dois serviços, sendo eles o serviço de API e de carrinho, o serviço de API fica responsável por armazenar todos os dados e métodos que seriam utilizados para fazer requisições na API, enquanto o serviço de carrinho disponibiliza variáveis e métodos para injetarmos em componentes instanciando somente uma vez em toda a aplicação e mantendo a informação atualizada mesmo que em componentes diferentes, para armazenamento dos dados do carrinho eu utilizei o local storage, evitando que quando o usuário atualizasse a pagina zerasse o estado do carrinho de compras, mantendo o mesmo ainda que o usuário saia da pagina e retorne.
+Quadrinhos raros recebem o prefixo "[RARA]" no seu titulo e seu background é modificado para uma cor de destaque, sendo que 10% dos quadrinhos são marcados como raros assim que a requisição é feita.
 
 ## 📝 License
 
