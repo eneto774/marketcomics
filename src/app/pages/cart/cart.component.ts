@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   status_cupom: any;
   styleMsg: any;
   totalCupom: number;
+  descontoValue: number;
   constructor(
     private cartService: CartService
   ) { }
@@ -53,7 +54,8 @@ export class CartComponent implements OnInit {
     if(cupom === 'CUPOM20'){
       this.status_cupom = 'Cupom Valido';
       this.styleMsg = 'success';
-      this.totalCupom = this.totalCupom - ((this.totalCupom * 20) / 100);
+      this.descontoValue = (this.totalCupom * 20) / 100;
+      this.totalCupom = this.totalCupom - this.descontoValue;
     } else {
       this.status_cupom = "Cupom Invalido";
       this.styleMsg = 'error';

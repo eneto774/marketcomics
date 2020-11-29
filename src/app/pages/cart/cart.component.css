@@ -7,7 +7,7 @@ a {
 }
 
 div.links {
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 div img {
@@ -29,13 +29,10 @@ div.item {
   border-radius: 5px;
 }
 
-a.link {
+button.link {
   color: #131212;
-  padding: 10px;
-}
-a.link1 {
-  color: #ba1717;
-  padding: 10px;
+  padding: 5px;
+  margin: 10px;
 }
 
 div.item_info {
@@ -80,4 +77,8 @@ section.cupomTotal {
 }
 div.totalCupom h3 {
   font-weight: 600;
+}
+
+input.inputDesconto {
+  text-transform: uppercase;
 }

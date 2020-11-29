@@ -3,23 +3,24 @@
 <h1>Carrinho de Compras</h1>
 <div class="links">
   <button [routerLink]="['/']" class="link">Continuar Comprando</button>
-  <button (click)="clearCart()" class="link1">Esvaziar Carrinho</button>
+  <button (click)="clearCart()" class="link">Esvaziar Carrinho</button>
+  <button [routerLink]="['/order-success']" class="link">Finalizar Compra</button>
 </div>
 
 <section class="cupomTotal">
   <div>
     <p>Favo Utilizar o Cupom de Desconto: CUPOM20</p>
-    <input type="text" (input)="this.cupom = $event.target.value">
-    <button (click)="aplicaDesconto(cupom)">Aplicar</button>
+    <input type="text" class="inputDesconto" (input)="this.cupom = $event.target.value">
+    <button (click)="aplicaDesconto(cupom.toUpperCase())">Aplicar</button>
     <p class="{{styleMsg}}">{{ status_cupom }}</p>
     </div>
     <div class={totalCupom}>
-      <h3>Total no Carrinho: {{ totalCupom | currency:'BRL':true}}</h3>
+      <h3>Total do Carrinho: {{ totalCupom | currency:'BRL':true}}</h3>
+      <h5> Descontos : {{ descontoValue || 0.00 | currency: 'BRL': true }}</h5>
     </div>
   </section>
 
 <div class="item" *ngFor="let item of cart">
-
   <button class="deleteItem" (click)="removeItem(item.id)">X</button>
 
   <img src="{{item.thumbnail}}" alt="{{item.title}}">
@@ -34,4 +35,3 @@
   </div>
 </div>
 </section>
-<!-- {{ cart | json}} -->

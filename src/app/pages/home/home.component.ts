@@ -32,10 +32,8 @@ export class HomeComponent implements OnInit {
       for(let i = 0; i < qtdRare; i++) {
         let rare = Math.floor(Math.random() * (this.comics.data.results.length - 1));
         Object.assign(this.comics.data.results[rare], {"rare" : true});
-        console.log(this.comics.data.results[rare].rare);
       }
 
-      console.log(this.comics);
     }, (error: any) => {
       this.error = error;
       console.error("Erro: ", error);
@@ -53,7 +51,11 @@ export class HomeComponent implements OnInit {
     if(this.page >= 20) {
     this.api.getComicsPages(this.page -= 20).subscribe((comics: any) => {
       this.comics = comics;
-      console.log(this.comics);
+      let qtdRare = this.comics.data.results.length * 0.1;
+      for(let i = 0; i < qtdRare; i++) {
+        let rare = Math.floor(Math.random() * (this.comics.data.results.length - 1));
+        Object.assign(this.comics.data.results[rare], {"rare" : true});
+      }
     }, (error: any) => {
       this.error = error;
       console.error("Erro: ", error);
@@ -65,7 +67,11 @@ export class HomeComponent implements OnInit {
   nextPage(){
     this.api.getComicsPages(this.page += 20).subscribe((comics: any) => {
       this.comics = comics;
-      console.log(this.comics);
+      let qtdRare = this.comics.data.results.length * 0.1;
+      for(let i = 0; i < qtdRare; i++) {
+        let rare = Math.floor(Math.random() * (this.comics.data.results.length - 1));
+        Object.assign(this.comics.data.results[rare], {"rare" : true});
+      }
     }, (error: any) => {
       this.error = error;
       console.error("Erro: ", error);
@@ -82,7 +88,8 @@ export class HomeComponent implements OnInit {
         thumbnail: this.data[0].thumbnail.path + "." + this.data[0].thumbnail.extension,
         title: this.data[0].title,
         qtd: 1,
-        totalPrice: 12.5
+        totalPrice: 12.5,
+        rare: this.data[0].rare
       });
     } else {
       let qtdComic = this.cartService.cart[index].qtd;
