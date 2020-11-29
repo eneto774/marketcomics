@@ -12,7 +12,7 @@
   </div>
 </section>
 <section class="ComicDetail">
-  <h1>{{comic.title}}</h1>
+  <h1>{{ rare ? '[RARA]': '' }}{{comic.title}}</h1>
 <p class="comicId">{{ comic.id }}</p>
 <img src="{{comic.thumbnail.path }}.{{comic.thumbnail.extension}}" alt="{{ comic.title }}">
 <h1>R$ 12,50</h1>

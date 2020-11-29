@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ComicDetailComponent } from './pages/comic-detail/comic-detail.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { OrderSuccessComponent } from './pages/order-success/order-success.component';
+import { ComicDetailService } from 'src/services/comic-detail.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { OrderSuccessComponent } from './pages/order-success/order-success.compo
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [HttpClient, CartService],
+  providers: [HttpClient, CartService, ComicDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

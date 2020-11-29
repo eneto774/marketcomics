@@ -24,4 +24,5 @@ export class CartService {
       return acum + elem.totalPrice;
     },0);
   }
+
 }

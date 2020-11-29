@@ -1,3 +1,4 @@
+import { ComicDetailService } from 'src/services/comic-detail.service';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../../services/api.service';
 import { CartService } from './../../../services/cart.service';
@@ -17,7 +18,9 @@ export class HomeComponent implements OnInit {
   totalPage: number;
   constructor(
     private api: ApiService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private comicDetail: ComicDetailService
+    ) { }
 
   ngOnInit(): void {
     this.data = this.cartService.getCart();
@@ -40,11 +43,20 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  isRare(rare: boolean) {
+    console.log('Antes:', rare)
+    this.comicDetail.setRare(rare);
+  }
+
   getTotalStorage(){
     let x = JSON.parse(localStorage.getItem('cart'));
+    if (x) {
     return x.reduce((acum: number, elem: any) => {
       return acum + elem.totalPrice;
     },0);
+  } else {
+    return;
+  }
   }
 
   previousPage() {
