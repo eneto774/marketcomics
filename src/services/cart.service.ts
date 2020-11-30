@@ -26,13 +26,8 @@ export class CartService {
       return acum + elem.totalPrice;
     },0);
     let rareBalance = this.cart.reduce((acum: number, elem: any) => {
-        return elem.rare ? acum + elem.totalPrice : acum+0;
+        return elem.rare ? acum + elem.totalPrice : acum + 0;
     },0);
-    // let rareBalance = this.cart.forEach(i => {
-    //   if(i.rare === true) {
-    //    rareBalance += i.totalPrice
-    //   }
-    // });
     let comumBalance = totalBalance - rareBalance;
     this.balance =  {
       totalBalance,

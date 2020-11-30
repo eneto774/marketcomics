@@ -47,7 +47,6 @@ export class CartComponent implements OnInit {
 
   removeItem(id: number) {
     let index = this.cart.findIndex(cart => cart.id === id);
-    console.log(id, index);
     this.cart.splice(index, 1);
     this.data.splice(index, 1);
     this.cartService.cart.splice(index,1);
@@ -68,7 +67,6 @@ export class CartComponent implements OnInit {
       this.status_cupom = 'Cupom Valido';
       this.styleMsg = 'success';
       if (cupons[index].rare === true){
-        console.log(this.cartService.balance);
         let { totalBalance, rareBalance, comumBalance } = this.cartService.getBalance();
         this.descontoValue = (totalBalance * cupons[index].descont);
         let total = (totalBalance - this.descontoValue);

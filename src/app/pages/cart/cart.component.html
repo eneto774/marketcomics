@@ -20,18 +20,20 @@
     </div>
   </section>
 
-<div class="item" *ngFor="let item of cart">
-  <button class="deleteItem" (click)="removeItem(item.id)">X</button>
+<div *ngFor="let item of cart">
+  <div class="item {{ item.rare ? 'comicRara': '' }}">
+    <button class="deleteItem" (click)="removeItem(item.id)">X</button>
 
   <img src="{{item.thumbnail}}" alt="{{item.title}}">
 
   <div class="item_info">
-  <h3>{{ item.title }}</h3>
+  <h3>{{ item.rare ? '[RARA]': '' }}{{ item.title }}</h3>
   <span>Codigo: {{ item.id }}</span>
   </div>
   <div>
     <h3>{{ item.price | currency:'BRL':true}}</h3>
     <span>Qtd: {{ item.qtd }}</span>
+  </div>
   </div>
 </div>
 </section>

@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
     this.data = this.cartService.getCart();
     this.execute();
     this.totalCart = this.getTotalStorage();
-    console.log(this.cartService.getBalance());
   }
 
   execute() {
@@ -45,7 +44,6 @@ export class HomeComponent implements OnInit {
   }
 
   isRare(rare: boolean) {
-    console.log('Antes:', rare)
     this.comicDetail.setRare(rare);
   }
 

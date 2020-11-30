@@ -26,7 +26,6 @@ export class ComicDetailComponent implements OnInit {
   ngOnInit(): void {
     this.execute();
     this.rare = this.comicDetail.getRare();
-    console.log(this.rare);
     this.totalCart = this.getTotalStorage();
   }
 
@@ -35,7 +34,6 @@ export class ComicDetailComponent implements OnInit {
     this.api.getDetailComic(this.id).subscribe((comic: any) => {
       this.comic = comic.data.results[0];
       Object.assign(this.comic, {"rare" : this.rare});
-      console.log(this.comic);
     }, (error: any) => {
       this.error = error;
       console.error("Erro: ", error);
@@ -52,7 +50,6 @@ export class ComicDetailComponent implements OnInit {
       totalPrice: 12.50,
       rare: this.rare,
     });
-    console.log(this.rare);
     let { totalBalance } = this.cartService.getBalance();
     this.totalCart = totalBalance;
     localStorage.setItem('cart', JSON.stringify(this.cartService.cart));
