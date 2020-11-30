@@ -55,7 +55,7 @@ Crie uma Single Page Application (Angular 10) de uma loja de quadrinhos utilizan
 * 10% dos quadrinhos carregados devem ser marcados como raros
 * O checkout deve contemplar a opcão de código de desconto
 * Faça um rest simulado (mock) para receber cupons de desconto na App
-* (OPCIONAL) Existem dois tipos de cupons: Cupons raros e cupons comuns. Cupons comuns dão desconto somente para quadrinhos comuns enquanto raros podem ser usados em qualquer tipo
+* Existem dois tipos de cupons: Cupons raros e cupons comuns. Cupons comuns dão desconto somente para quadrinhos comuns enquanto raros podem ser usados em qualquer tipo
 
 ---
 

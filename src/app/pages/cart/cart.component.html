@@ -9,7 +9,7 @@
 
 <section class="cupomTotal">
   <div>
-    <p>Favo Utilizar o Cupom de Desconto: Comum: CUPOM20 - Raro: RARE5</p>
+    <p>Favor Utilizar o Cupom de Desconto: Comum: CUPOM20 - Raro: RARE5</p>
     <input type="text" class="inputDesconto" (input)="this.cupom = $event.target.value">
     <button (click)="aplicaDesconto(cupom.toUpperCase())">Aplicar</button>
     <p class="{{styleMsg}}">{{ status_cupom }}</p>
