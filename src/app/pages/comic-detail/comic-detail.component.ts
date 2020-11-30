@@ -53,7 +53,8 @@ export class ComicDetailComponent implements OnInit {
       rare: this.rare,
     });
     console.log(this.rare);
-    this.totalCart = this.cartService.getBalance();
+    let { totalBalance } = this.cartService.getBalance();
+    this.totalCart = totalBalance;
     localStorage.setItem('cart', JSON.stringify(this.cartService.cart));
   }
 

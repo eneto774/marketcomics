@@ -4,7 +4,9 @@ import { Comic } from 'src/app/models/Comic';
 @Injectable()
 export class CartService {
   cart = JSON.parse(localStorage.getItem('cart')) || [];
+  balance: any;
   constructor() {
+    this.balance = this.getBalance();
    }
 
   getCart() {
@@ -20,9 +22,24 @@ export class CartService {
   }
 
   getBalance() {
-    return this.cart.reduce((acum: number, elem: any) => {
+    let totalBalance = this.cart.reduce((acum: number, elem: any) => {
       return acum + elem.totalPrice;
     },0);
+    let rareBalance = this.cart.reduce((acum: number, elem: any) => {
+        return elem.rare ? acum + elem.totalPrice : acum+0;
+    },0);
+    // let rareBalance = this.cart.forEach(i => {
+    //   if(i.rare === true) {
+    //    rareBalance += i.totalPrice
+    //   }
+    // });
+    let comumBalance = totalBalance - rareBalance;
+    this.balance =  {
+      totalBalance,
+      comumBalance,
+      rareBalance
+    };
+    return this.balance;
   }
 
 }

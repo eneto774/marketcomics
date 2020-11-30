@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.data = this.cartService.getCart();
     this.execute();
     this.totalCart = this.getTotalStorage();
+    console.log(this.cartService.getBalance());
   }
 
   execute() {
@@ -108,7 +109,8 @@ export class HomeComponent implements OnInit {
       this.cartService.cart[index].qtd = qtdComic += 1
       this.cartService.cart[index].totalPrice = this.cartService.cart[index].qtd * this.cartService.cart[index].price;
     }
-    this.totalCart = this.cartService.getBalance();
+    let { totalBalance } = this.cartService.getBalance();
+    this.totalCart = totalBalance;
     localStorage.setItem('cart', JSON.stringify(this.cartService.cart));
 }
 
